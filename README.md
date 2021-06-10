@@ -24,13 +24,13 @@
 </p>
 <p align="center">
 
-<a href='https://facebook.com/sharer/sharer.php?u=https://github.com/clouddrove/terraform-aws-s3'>
+<a href='https://facebook.com/sharer/sharer.php?u=https://github.com/astechmind/terraform-aws-s3'>
   <img title="Share on Facebook" src="https://user-images.githubusercontent.com/50652676/62817743-4f64cb80-bb59-11e9-90c7-b057252ded50.png" />
 </a>
-<a href='https://www.linkedin.com/shareArticle?mini=true&title=Terraform+AWS+S3&url=https://github.com/clouddrove/terraform-aws-s3'>
+<a href='https://www.linkedin.com/shareArticle?mini=true&title=Terraform+AWS+S3&url=https://github.com/astechmind/terraform-aws-s3'>
   <img title="Share on LinkedIn" src="https://user-images.githubusercontent.com/50652676/62817742-4e339e80-bb59-11e9-87b9-a1f68cae1049.png" />
 </a>
-<a href='https://twitter.com/intent/tweet/?text=Terraform+AWS+S3&url=https://github.com/clouddrove/terraform-aws-s3'>
+<a href='https://twitter.com/intent/tweet/?text=Terraform+AWS+S3&url=https://github.com/astechmind/terraform-aws-s3'>
   <img title="Share on Twitter" src="https://user-images.githubusercontent.com/50652676/62817740-4c69db00-bb59-11e9-8a79-3580fbbf6d5c.png" />
 </a>
 
@@ -57,7 +57,7 @@ This module has a few dependencies:
 
 ## Examples
 
-**IMPORTANT:** Since the `master` branch used in `source` varies based on new modifications, we suggest that you use the release versions [here](https://github.com/clouddrove/terraform-aws-s3/releases).
+**IMPORTANT:** Since the `master` branch used in `source` varies based on new modifications, we suggest that you use the release versions [here](https://github.com/astechmind/terraform-aws-s3/releases).
 
 
 Here are some examples of how you can use this module in your inventory structure:
@@ -147,7 +147,7 @@ data "aws_iam_policy_document" "default" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | acl | Canned ACL to apply to the S3 bucket. | string | `` | no |
-| application | Application (e.g. `cd` or `clouddrove`). | string | `` | no |
+| application | Application (e.g. `cd` or `astechmind`). | string | `` | no |
 | attributes | Additional attributes (e.g. `1`). | list | `<list>` | no |
 | aws_iam_policy_document | Specifies the number of days after object creation when the object expires. | string | `` | no |
 | bucket_enabled | Enable simple S3. | bool | `true` | no |
