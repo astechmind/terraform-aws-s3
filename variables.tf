@@ -52,8 +52,8 @@ variable "acl" {
 
 variable "bucket_enabled" {
   type        = bool
-  default     = true
-  description = "Enable simple S3."
+  default     = false
+  description = "Deprecated. Use create_bucket instead."
 }
 
 variable "bucket_logging_enabled" {

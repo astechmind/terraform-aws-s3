@@ -1,20 +1,24 @@
-# Module      : S3 BUCKET
-# Description : Terraform module to create default S3 bucket with logging and encryption
-#               type specific features.
 output "id" {
-  value       = var.bucket_enabled ? join("", aws_s3_bucket.s3_default.*.id) : (var.website_hosting_bucket ? join("", aws_s3_bucket.s3_website.*.id) : (var.bucket_logging_enabled ? join("", aws_s3_bucket.s3_logging.*.id) : join("", aws_s3_bucket.s3_encryption.*.id)))
+  value       = var.create_bucket ? aws_s3_bucket.this[0].id : ""
   description = "The ID of the s3 bucket."
-
 }
 
 output "arn" {
-  value       = var.bucket_enabled ? join("", aws_s3_bucket.s3_default.*.arn) : (var.website_hosting_bucket ? join("", aws_s3_bucket.s3_website.*.arn) : (var.bucket_logging_enabled ? join("", aws_s3_bucket.s3_logging.*.arn) : join("", aws_s3_bucket.s3_encryption.*.arn)))
+  value       = var.create_bucket ? aws_s3_bucket.this[0].arn : ""
   description = "The ARN of the s3 bucket."
-
 }
 
 output "bucket_domain_name" {
-  value       = var.bucket_enabled ? join("", aws_s3_bucket.s3_default.*.bucket_domain_name) : (var.website_hosting_bucket ? join("", aws_s3_bucket.s3_website.*.bucket_domain_name) : (var.bucket_logging_enabled ? join("", aws_s3_bucket.s3_logging.*.bucket_domain_name) : join("", aws_s3_bucket.s3_encryption.*.bucket_domain_name)))
-  description = "The Domain of the s3 bucket."
+  value       = var.create_bucket ? aws_s3_bucket.this[0].bucket_domain_name : ""
+  description = "The domain name of the s3 bucket."
+}
 
+output "bucket_regional_domain_name" {
+  value       = var.create_bucket ? aws_s3_bucket.this[0].bucket_regional_domain_name : ""
+  description = "The regional domain name of the s3 bucket."
+}
+
+output "website_endpoint" {
+  value       = var.create_bucket && var.website_hosting_bucket ? try(aws_s3_bucket_website_configuration.this[0].website_endpoint, "") : ""
+  description = "The website endpoint of the s3 bucket."
 }
