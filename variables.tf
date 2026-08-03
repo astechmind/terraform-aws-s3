@@ -184,6 +184,30 @@ variable "force_destroy" {
   description = "A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are not recoverable."
 }
 
+variable "block_public_acls" {
+  type        = bool
+  default     = true
+  description = "PublicAccessBlock: bloqueia ACLs públicas novas/existentes no bucket."
+}
+
+variable "block_public_policy" {
+  type        = bool
+  default     = false
+  description = "PublicAccessBlock: bloqueia bucket policies que concedem acesso público. Default false preserva o comportamento já existente (buckets atrás de CloudFront/OAC via bucket policy); setar true endurece, false é necessário se o bucket precisa de leitura pública direta via policy (ex: origem sem OAC)."
+}
+
+variable "ignore_public_acls" {
+  type        = bool
+  default     = true
+  description = "PublicAccessBlock: ignora ACLs públicas existentes no bucket."
+}
+
+variable "restrict_public_buckets" {
+  type        = bool
+  default     = false
+  description = "PublicAccessBlock: restringe acesso público via bucket policy mesmo se ela permitir. Mesma ressalva de block_public_policy."
+}
+
 variable "cors_rule_inputs" {
   type = list(object({
     allowed_headers = list(string)
